@@ -8,7 +8,9 @@ Executable will consist of:
 
 A few experiments:
 
-1. If PID namespaces are on, or if the child process cannot cgroup itself, when the parent exits, the child is automatically killed as we would expect.
+1. If we run this experiment in a Centos VM, the child process will outlive the parent as we would expect.
+
+1. If PID namespaces are on, or if the child process cannot cgroup itself, when the parent exits, the child is automatically killed as we guessed.
 
 1. If `run_privileged.sh` is used to run in privileged mode, it seems like the child can outlive the parent and still access info in the overlayfs. Docker reports the container as running but it does shut down when the container exits. Seems promising?
 
